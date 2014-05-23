@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA54C429192F5E8A006D6737 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB47EB6192E2B0300D2BC43 /* AppDelegate.m */; };
+		DA54C42B192F603C006D6737 /* 128.png in Resources */ = {isa = PBXBuildFile; fileRef = DA54C42A192F603C006D6737 /* 128.png */; };
+		DA60B4B4192F567700B4B8B8 /* AskPass in Resources */ = {isa = PBXBuildFile; fileRef = DAB47EDF192F429A00D2BC43 /* AskPass */; };
+		DAB47EA4192E2B0300D2BC43 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB47EA3192E2B0300D2BC43 /* Cocoa.framework */; };
+		DAB47EAE192E2B0300D2BC43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAB47EAC192E2B0300D2BC43 /* InfoPlist.strings */; };
+		DAB47EB0192E2B0300D2BC43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB47EAF192E2B0300D2BC43 /* main.m */; };
+		DAB47EB7192E2B0300D2BC43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB47EB6192E2B0300D2BC43 /* AppDelegate.m */; };
+		DAB47EBC192E2B0300D2BC43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB47EBB192E2B0300D2BC43 /* Images.xcassets */; };
+		DAB47EC3192E2B0300D2BC43 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB47EC2192E2B0300D2BC43 /* XCTest.framework */; };
+		DAB47EC4192E2B0300D2BC43 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB47EA3192E2B0300D2BC43 /* Cocoa.framework */; };
+		DAB47ECC192E2B0300D2BC43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAB47ECA192E2B0300D2BC43 /* InfoPlist.strings */; };
+		DAB47ECE192E2B0300D2BC43 /* Vagrant_BarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB47ECD192E2B0300D2BC43 /* Vagrant_BarTests.m */; };
+		DAB47ED8192E319100D2BC43 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB47ED7192E319100D2BC43 /* MainMenu.xib */; };
+		DAB47EE1192F429A00D2BC43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB47EE0192F429A00D2BC43 /* Foundation.framework */; };
+		DAB47EE4192F429A00D2BC43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB47EE3192F429A00D2BC43 /* main.m */; };
+		DAB47EF3192F4AC200D2BC43 /* menubar.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB47EF1192F4AC200D2BC43 /* menubar.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAB47EC5192E2B0300D2BC43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAB47E98192E2B0300D2BC43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAB47E9F192E2B0300D2BC43;
+			remoteInfo = "Vagrant Bar";
+		};
+		DAB47EED192F42CF00D2BC43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAB47E98192E2B0300D2BC43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAB47EDE192F429A00D2BC43;
+			remoteInfo = AskPass;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DAB47EDD192F429A00D2BC43 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DA54C42A192F603C006D6737 /* 128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 128.png; path = Images.xcassets/AppIcon.appiconset/128.png; sourceTree = "<group>"; };
+		DAB47EA0192E2B0300D2BC43 /* Vagrant Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vagrant Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB47EA3192E2B0300D2BC43 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		DAB47EA6192E2B0300D2BC43 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		DAB47EA7192E2B0300D2BC43 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DAB47EA8192E2B0300D2BC43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DAB47EAB192E2B0300D2BC43 /* Vagrant Bar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vagrant Bar-Info.plist"; sourceTree = "<group>"; };
+		DAB47EAD192E2B0300D2BC43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DAB47EAF192E2B0300D2BC43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DAB47EB1192E2B0300D2BC43 /* Vagrant Bar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vagrant Bar-Prefix.pch"; sourceTree = "<group>"; };
+		DAB47EB5192E2B0300D2BC43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DAB47EB6192E2B0300D2BC43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DAB47EBB192E2B0300D2BC43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DAB47EC1192E2B0300D2BC43 /* Vagrant BarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Vagrant BarTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB47EC2192E2B0300D2BC43 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DAB47EC9192E2B0300D2BC43 /* Vagrant BarTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vagrant BarTests-Info.plist"; sourceTree = "<group>"; };
+		DAB47ECB192E2B0300D2BC43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DAB47ECD192E2B0300D2BC43 /* Vagrant_BarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Vagrant_BarTests.m; sourceTree = "<group>"; };
+		DAB47ED7192E319100D2BC43 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		DAB47EDF192F429A00D2BC43 /* AskPass */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AskPass; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB47EE0192F429A00D2BC43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DAB47EE3192F429A00D2BC43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DAB47EE6192F429A00D2BC43 /* AskPass-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AskPass-Prefix.pch"; sourceTree = "<group>"; };
+		DAB47EF1192F4AC200D2BC43 /* menubar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubar.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAB47E9D192E2B0300D2BC43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB47EA4192E2B0300D2BC43 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB47EBE192E2B0300D2BC43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB47EC4192E2B0300D2BC43 /* Cocoa.framework in Frameworks */,
+				DAB47EC3192E2B0300D2BC43 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB47EDC192F429A00D2BC43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB47EE1192F429A00D2BC43 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DAB47E97192E2B0300D2BC43 = {
+			isa = PBXGroup;
+			children = (
+				DAB47EA9192E2B0300D2BC43 /* Vagrant Bar */,
+				DAB47EC7192E2B0300D2BC43 /* Vagrant BarTests */,
+				DAB47EE2192F429A00D2BC43 /* AskPass */,
+				DAB47EA2192E2B0300D2BC43 /* Frameworks */,
+				DAB47EA1192E2B0300D2BC43 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAB47EA1192E2B0300D2BC43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAB47EA0192E2B0300D2BC43 /* Vagrant Bar.app */,
+				DAB47EC1192E2B0300D2BC43 /* Vagrant BarTests.xctest */,
+				DAB47EDF192F429A00D2BC43 /* AskPass */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAB47EA2192E2B0300D2BC43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAB47EA3192E2B0300D2BC43 /* Cocoa.framework */,
+				DAB47EC2192E2B0300D2BC43 /* XCTest.framework */,
+				DAB47EE0192F429A00D2BC43 /* Foundation.framework */,
+				DAB47EA5192E2B0300D2BC43 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAB47EA5192E2B0300D2BC43 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAB47EA6192E2B0300D2BC43 /* AppKit.framework */,
+				DAB47EA7192E2B0300D2BC43 /* CoreData.framework */,
+				DAB47EA8192E2B0300D2BC43 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		DAB47EA9192E2B0300D2BC43 /* Vagrant Bar */ = {
+			isa = PBXGroup;
+			children = (
+				DA54C42A192F603C006D6737 /* 128.png */,
+				DAB47EF1192F4AC200D2BC43 /* menubar.png */,
+				DAB47EB5192E2B0300D2BC43 /* AppDelegate.h */,
+				DAB47EB6192E2B0300D2BC43 /* AppDelegate.m */,
+				DAB47EBB192E2B0300D2BC43 /* Images.xcassets */,
+				DAB47EAA192E2B0300D2BC43 /* Supporting Files */,
+				DAB47ED7192E319100D2BC43 /* MainMenu.xib */,
+			);
+			path = "Vagrant Bar";
+			sourceTree = "<group>";
+		};
+		DAB47EAA192E2B0300D2BC43 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAB47EAB192E2B0300D2BC43 /* Vagrant Bar-Info.plist */,
+				DAB47EAC192E2B0300D2BC43 /* InfoPlist.strings */,
+				DAB47EAF192E2B0300D2BC43 /* main.m */,
+				DAB47EB1192E2B0300D2BC43 /* Vagrant Bar-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAB47EC7192E2B0300D2BC43 /* Vagrant BarTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAB47ECD192E2B0300D2BC43 /* Vagrant_BarTests.m */,
+				DAB47EC8192E2B0300D2BC43 /* Supporting Files */,
+			);
+			path = "Vagrant BarTests";
+			sourceTree = "<group>";
+		};
+		DAB47EC8192E2B0300D2BC43 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAB47EC9192E2B0300D2BC43 /* Vagrant BarTests-Info.plist */,
+				DAB47ECA192E2B0300D2BC43 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAB47EE2192F429A00D2BC43 /* AskPass */ = {
+			isa = PBXGroup;
+			children = (
+				DAB47EE3192F429A00D2BC43 /* main.m */,
+				DAB47EE5192F429A00D2BC43 /* Supporting Files */,
+			);
+			path = AskPass;
+			sourceTree = "<group>";
+		};
+		DAB47EE5192F429A00D2BC43 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAB47EE6192F429A00D2BC43 /* AskPass-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAB47E9F192E2B0300D2BC43 /* Vagrant Bar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB47ED1192E2B0300D2BC43 /* Build configuration list for PBXNativeTarget "Vagrant Bar" */;
+			buildPhases = (
+				DAB47E9C192E2B0300D2BC43 /* Sources */,
+				DAB47E9D192E2B0300D2BC43 /* Frameworks */,
+				DAB47E9E192E2B0300D2BC43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAB47EEE192F42CF00D2BC43 /* PBXTargetDependency */,
+			);
+			name = "Vagrant Bar";
+			productName = "Vagrant Bar";
+			productReference = DAB47EA0192E2B0300D2BC43 /* Vagrant Bar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAB47EC0192E2B0300D2BC43 /* Vagrant BarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB47ED4192E2B0300D2BC43 /* Build configuration list for PBXNativeTarget "Vagrant BarTests" */;
+			buildPhases = (
+				DAB47EBD192E2B0300D2BC43 /* Sources */,
+				DAB47EBE192E2B0300D2BC43 /* Frameworks */,
+				DAB47EBF192E2B0300D2BC43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAB47EC6192E2B0300D2BC43 /* PBXTargetDependency */,
+			);
+			name = "Vagrant BarTests";
+			productName = "Vagrant BarTests";
+			productReference = DAB47EC1192E2B0300D2BC43 /* Vagrant BarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DAB47EDE192F429A00D2BC43 /* AskPass */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB47EE9192F429A00D2BC43 /* Build configuration list for PBXNativeTarget "AskPass" */;
+			buildPhases = (
+				DAB47EDB192F429A00D2BC43 /* Sources */,
+				DAB47EDC192F429A00D2BC43 /* Frameworks */,
+				DAB47EDD192F429A00D2BC43 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AskPass;
+			productName = AskPass;
+			productReference = DAB47EDF192F429A00D2BC43 /* AskPass */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAB47E98192E2B0300D2BC43 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = BipSync;
+				TargetAttributes = {
+					DAB47EC0192E2B0300D2BC43 = {
+						TestTargetID = DAB47E9F192E2B0300D2BC43;
+					};
+				};
+			};
+			buildConfigurationList = DAB47E9B192E2B0300D2BC43 /* Build configuration list for PBXProject "Vagrant Bar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAB47E97192E2B0300D2BC43;
+			productRefGroup = DAB47EA1192E2B0300D2BC43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAB47E9F192E2B0300D2BC43 /* Vagrant Bar */,
+				DAB47EC0192E2B0300D2BC43 /* Vagrant BarTests */,
+				DAB47EDE192F429A00D2BC43 /* AskPass */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAB47E9E192E2B0300D2BC43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA60B4B4192F567700B4B8B8 /* AskPass in Resources */,
+				DAB47EF3192F4AC200D2BC43 /* menubar.png in Resources */,
+				DAB47EAE192E2B0300D2BC43 /* InfoPlist.strings in Resources */,
+				DA54C42B192F603C006D6737 /* 128.png in Resources */,
+				DAB47EBC192E2B0300D2BC43 /* Images.xcassets in Resources */,
+				DAB47ED8192E319100D2BC43 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB47EBF192E2B0300D2BC43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB47ECC192E2B0300D2BC43 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAB47E9C192E2B0300D2BC43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB47EB7192E2B0300D2BC43 /* AppDelegate.m in Sources */,
+				DAB47EB0192E2B0300D2BC43 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB47EBD192E2B0300D2BC43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB47ECE192E2B0300D2BC43 /* Vagrant_BarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB47EDB192F429A00D2BC43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA54C429192F5E8A006D6737 /* AppDelegate.m in Sources */,
+				DAB47EE4192F429A00D2BC43 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAB47EC6192E2B0300D2BC43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAB47E9F192E2B0300D2BC43 /* Vagrant Bar */;
+			targetProxy = DAB47EC5192E2B0300D2BC43 /* PBXContainerItemProxy */;
+		};
+		DAB47EEE192F42CF00D2BC43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAB47EDE192F429A00D2BC43 /* AskPass */;
+			targetProxy = DAB47EED192F42CF00D2BC43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DAB47EAC192E2B0300D2BC43 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAB47EAD192E2B0300D2BC43 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DAB47ECA192E2B0300D2BC43 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAB47ECB192E2B0300D2BC43 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DAB47ECF192E2B0300D2BC43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DAB47ED0192E2B0300D2BC43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DAB47ED2192E2B0300D2BC43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Vagrant Bar/Vagrant Bar-Prefix.pch";
+				INFOPLIST_FILE = "Vagrant Bar/Vagrant Bar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DAB47ED3192E2B0300D2BC43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Vagrant Bar/Vagrant Bar-Prefix.pch";
+				INFOPLIST_FILE = "Vagrant Bar/Vagrant Bar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DAB47ED5192E2B0300D2BC43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Vagrant Bar.app/Contents/MacOS/Vagrant Bar";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Vagrant Bar/Vagrant Bar-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Vagrant BarTests/Vagrant BarTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		DAB47ED6192E2B0300D2BC43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Vagrant Bar.app/Contents/MacOS/Vagrant Bar";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Vagrant Bar/Vagrant Bar-Prefix.pch";
+				INFOPLIST_FILE = "Vagrant BarTests/Vagrant BarTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		DAB47EEA192F429A00D2BC43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AskPass/AskPass-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DAB47EEB192F429A00D2BC43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AskPass/AskPass-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAB47E9B192E2B0300D2BC43 /* Build configuration list for PBXProject "Vagrant Bar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB47ECF192E2B0300D2BC43 /* Debug */,
+				DAB47ED0192E2B0300D2BC43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAB47ED1192E2B0300D2BC43 /* Build configuration list for PBXNativeTarget "Vagrant Bar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB47ED2192E2B0300D2BC43 /* Debug */,
+				DAB47ED3192E2B0300D2BC43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAB47ED4192E2B0300D2BC43 /* Build configuration list for PBXNativeTarget "Vagrant BarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB47ED5192E2B0300D2BC43 /* Debug */,
+				DAB47ED6192E2B0300D2BC43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAB47EE9192F429A00D2BC43 /* Build configuration list for PBXNativeTarget "AskPass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB47EEA192F429A00D2BC43 /* Debug */,
+				DAB47EEB192F429A00D2BC43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAB47E98192E2B0300D2BC43 /* Project object */;
+}
