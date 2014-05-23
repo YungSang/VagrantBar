@@ -7,7 +7,9 @@ Vagrant Bar is a simple wrapper to the Vagrant command line tool to manage machi
 ## Requirements
 
 * OSX 10.8
-* Vagrant http://www.vagrantup.com
+* Vagrant 1.6+ http://www.vagrantup.com
+
+
 
 ## Download
 
