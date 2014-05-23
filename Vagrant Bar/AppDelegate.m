@@ -139,6 +139,7 @@
         
         item.tag = [machineIds count] - 1;
         item.submenu = [machineSubmenu copy];
+        [self setupMachineSubmenuExtras:item.submenu];
         
         BOOL running = [machineStatus[ @"state" ] isEqualToString:@"running"],
         suspended = [machineStatus[ @"state" ] isEqualToString:@"suspended"],
@@ -446,5 +447,42 @@
     
 }
 
+- (void) setupMachineSubmenuExtras:(NSMenu *)menu {
+    
+    [menu addItem:[NSMenuItem separatorItem]];
+    [self addMenuItem:@"SSH" withImage:NSImageNameFollowLinkFreestandingTemplate toMenu:menu];
+    
+}
+
+- (void) machineSSH:(id)sender {
+    
+    NSString * machineId = [self machineIdFromSender:sender];
+    
+    NSString * script = @"clear\n";
+    script = [script stringByAppendingString:
+              [NSString stringWithFormat:@"%@ ssh %@", vagrantPath, machineId]];
+    
+    [self runScriptInTerminal:script];
+    
+}
+
+- (void) runScriptInTerminal:(NSString *)script {
+    
+    NSString * tempFile =
+    [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat: @"%.0f.%@", [NSDate timeIntervalSinceReferenceDate] * 1000.0, @"sh"]];
+    
+    if ( ![script writeToFile:tempFile atomically:NO encoding:NSUTF8StringEncoding error:nil] ) {
+        return;
+    }
+    
+    NSDictionary * attributes;
+    NSNumber * permissions = [NSNumber numberWithUnsignedLong:0x777];
+    attributes = [NSDictionary dictionaryWithObject:permissions forKey:NSFilePosixPermissions];
+    [[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:tempFile error:nil];
+    
+    [NSTask launchedTaskWithLaunchPath:
+     [NSString stringWithFormat:@"/usr/bin/open"] arguments:@[ @"-a", @"Terminal", tempFile ]];
+    
+}
 
 @end
