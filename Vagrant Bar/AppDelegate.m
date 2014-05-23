@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <fcntl.h>
 
 
 @implementation AppDelegate
@@ -39,6 +38,8 @@
     [self setupMachineSubmenu];
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    
+    [self checkForUpdate];
     
 }
 
@@ -333,14 +334,11 @@
         return;
     }
     
-    NSUserNotification * userNotification = [[NSUserNotification alloc] init];
-    userNotification.title = @"Vagrant Bar";
     if ( [string length] > 4 && [[string substringToIndex:4] isEqualToString:@"==> "] ) {
         string = [string substringFromIndex:4];
     }
-    userNotification.informativeText = string;
-    userNotification.soundName = NSUserNotificationDefaultSoundName;
-    
+    NSUserNotification * userNotification =
+    [self createUserNotification:string];
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:userNotification];
     
     //
@@ -484,5 +482,63 @@
      [NSString stringWithFormat:@"/usr/bin/open"] arguments:@[ @"-a", @"Terminal", tempFile ]];
     
 }
+
+- (void) checkForUpdate {
+    
+    NSURL * url = [NSURL URLWithString:@"https://api.github.com/repos/BipSync/VagrantBar/tags"];
+    NSURLSession * session = [NSURLSession sharedSession];
+    NSURLSessionDownloadTask * task =
+    [session downloadTaskWithURL:url
+               completionHandler:^( NSURL * location, NSURLResponse * response, NSError * error ) {
+                   
+                   if ( error ) {
+                       return;
+                   }
+                   NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)response;
+                   if ( httpResponse.statusCode != 200 ) {
+                       return;
+                   }
+                   NSString * json = [NSString stringWithContentsOfURL:location encoding:NSUTF8StringEncoding error:nil];
+                   
+                   NSArray * tags = (NSArray *)[NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
+                   if ( !tags || ![tags count] ) {
+                       return;
+                   }
+                   NSDictionary * latestTag = tags[ 0 ];
+                   if ( ![latestTag[ @"name" ] isEqualToString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]] ) {
+                       
+                       NSUserNotification * userNotification =
+                       [self createUserNotification:@"Upgrade available, click to download"];
+                       userNotification.subtitle = latestTag[ @"name" ];
+                       
+                       [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:userNotification];
+                       
+                   }
+                   
+               }];
+    [task resume];
+    
+}
+
+- (NSUserNotification *) createUserNotification:(NSString *)informativeText {
+    
+    NSUserNotification * userNotification = [[NSUserNotification alloc] init];
+    userNotification.title = @"Vagrant Bar";
+    userNotification.informativeText = informativeText;
+    userNotification.soundName = NSUserNotificationDefaultSoundName;
+    return userNotification;
+    
+}
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
+    
+    if ( notification.subtitle ) {
+        [[NSWorkspace sharedWorkspace] openURL:
+         [NSURL URLWithString:@"https://github.com/BipSync/VagrantBar/releases"]];
+    }
+    
+}
+
+
 
 @end
