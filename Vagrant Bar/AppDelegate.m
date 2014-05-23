@@ -25,6 +25,16 @@
         
     }
     
+    if ( ![self verifyVagrantVersion] ) {
+        
+        NSAlert * alert = [NSAlert alertWithMessageText:@"Vagrant Bar" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Error: Vagrant version 1.6+ is required\n\nUpgrade from: http://www.vagrantup.com/\n"];
+        [alert runModal];
+        
+        [[NSApplication sharedApplication] terminate:self];
+        return;
+        
+    }
+    
     [self setupStatusBarItem];
     [self setupMachineSubmenu];
     
@@ -402,6 +412,37 @@
     vagrantPath = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     return YES;
+    
+}
+
+- (BOOL) verifyVagrantVersion {
+
+    NSTask * task = [[NSTask alloc] init];
+    task.launchPath = vagrantPath;
+    task.arguments = @[ @"-v" ];
+    task.standardOutput = [NSPipe pipe];
+    [task launch];
+    
+    NSFileHandle * output = [task.standardOutput fileHandleForReading];
+    NSData * data = [output readDataToEndOfFile];
+    if ( ![data length] ) {
+        return NO;
+    }
+    NSString * string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    NSRegularExpression * regex =
+    [NSRegularExpression regularExpressionWithPattern:@"\\d+\\.\\d+\\.\\d+" options:0 error:nil];
+    
+    NSArray * matches = [regex matchesInString:string options:0 range:NSMakeRange( 0, [string length] )];
+    for ( NSTextCheckingResult * match in matches ) {
+        NSString * version = [string substringWithRange:match.range];
+        NSArray * versionComponents = [version componentsSeparatedByString:@"."];
+        if ( [versionComponents[ 0 ] intValue] > 1 || [versionComponents[ 1 ] intValue] > 5 ) {
+            return YES;
+        }
+    }
+    
+    return NO;
     
 }
 

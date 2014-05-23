@@ -13,11 +13,12 @@ Vagrant Bar is a simple wrapper to the Vagrant command line tool to manage machi
 
 ## Download
 
-https://github.com/BipSync/VagrantBar/releases/download/1.0/Vagrant.Bar.zip
+https://github.com/BipSync/VagrantBar/releases/download/1.1/Vagrant.Bar.zip
 
 
 Version History|Notes
 ----|----
+1.1 | Vagrant Bar now verifies the Vagrant version on startup
 1.0 | First release
 
 ## Installation
