@@ -18,14 +18,14 @@ int main( int argc, const char * argv[] ) {
     
     NSURL * iconUrl =
     [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                          [[[NSProcessInfo processInfo] environment] valueForKey:@"PWD"],
+                            [[[NSBundle mainBundle] executablePath] stringByDeletingLastPathComponent],
                           @"Vagrant Bar.app/Contents/Resources/64.png"
                           ]];
 	
 	NSDictionary * panel =
     [NSDictionary dictionaryWithObjectsAndKeys:
      @"Vagrant Bar", kCFUserNotificationAlertHeaderKey,
-     @"\nVagrant requires your password to continue", kCFUserNotificationAlertMessageKey,
+     @"\nVagrant requires your password to continue:", kCFUserNotificationAlertMessageKey,
      @"",kCFUserNotificationTextFieldTitlesKey,
      @"Cancel",kCFUserNotificationAlternateButtonTitleKey,
      (__bridge CFURLRef)iconUrl, kCFUserNotificationIconURLKey,
