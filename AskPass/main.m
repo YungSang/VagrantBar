@@ -19,7 +19,7 @@ int main( int argc, const char * argv[] ) {
     NSURL * iconUrl =
     [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                           [[[NSProcessInfo processInfo] environment] valueForKey:@"PWD"],
-                          @"Vagrant Bar.app/Contents/Resources/128.png"
+                          @"Vagrant Bar.app/Contents/Resources/64.png"
                           ]];
 	
 	NSDictionary * panel =

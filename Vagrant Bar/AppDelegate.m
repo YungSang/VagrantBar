@@ -39,7 +39,9 @@
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     
-    [self checkForUpdate];
+    if ( [self willCheckForUpdate] ) {
+        [self checkForUpdate];
+    }
     
 }
 
@@ -52,7 +54,14 @@
     NSStatusItem * item = [bar statusItemWithLength:NSVariableStatusItemLength];
     item.highlightMode = YES;
     item.menu = menu;
-    item.image = [NSImage imageNamed:@"menubar"];
+    
+    NSString * imageName = @"18";
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    if ( [defaults boolForKey:@"monoIcon"] ) {
+        imageName = @"18_mono";
+    }
+    
+    item.image = [NSImage imageNamed:imageName];
     item.toolTip = [NSString stringWithFormat:@"Vagrant Bar v%@",
                     [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     
@@ -478,8 +487,15 @@
     attributes = [NSDictionary dictionaryWithObject:permissions forKey:NSFilePosixPermissions];
     [[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:tempFile error:nil];
     
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    NSString * terminalAppName = [defaults stringForKey:@"terminalAppName"];
+    if ( !terminalAppName ) {
+        terminalAppName = @"Terminal";
+    }
+    
     [NSTask launchedTaskWithLaunchPath:
-     [NSString stringWithFormat:@"/usr/bin/open"] arguments:@[ @"-a", @"Terminal", tempFile ]];
+     [NSString stringWithFormat:@"/usr/bin/open"]
+                             arguments:@[ @"-a", terminalAppName, tempFile ]];
     
 }
 
@@ -508,7 +524,7 @@
                    if ( ![latestTag[ @"name" ] isEqualToString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]] ) {
                        
                        NSUserNotification * userNotification =
-                       [self createUserNotification:@"Upgrade available, click to download"];
+                       [self createUserNotification:@"Update available, click to download"];
                        userNotification.subtitle = latestTag[ @"name" ];
                        
                        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:userNotification];
@@ -536,6 +552,23 @@
         [[NSWorkspace sharedWorkspace] openURL:
          [NSURL URLWithString:@"https://github.com/BipSync/VagrantBar/releases"]];
     }
+    
+}
+
+- (BOOL) willCheckForUpdate {
+    
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    if ( [defaults valueForKey:@"checkForUpdates"] && [defaults boolForKey:@"checkForUpdates"] == NO ) {
+        return NO;
+    }
+    NSString * defaultsKey = @"lastCheckForUpdate";
+    NSTimeInterval lastCheckTime = [defaults doubleForKey:defaultsKey];
+    NSTimeInterval nowTime = [NSDate timeIntervalSinceReferenceDate];
+    if ( lastCheckTime && nowTime - lastCheckTime < 3600 ) {
+        return NO;
+    }
+    [defaults setValue:[NSNumber numberWithDouble:nowTime] forKey:defaultsKey];
+    return YES;
     
 }
 
