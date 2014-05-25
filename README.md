@@ -14,11 +14,12 @@ Vagrant Bar is a simple wrapper to the Vagrant command line tool to manage machi
 
 ## Download
 
-https://github.com/BipSync/VagrantBar/releases/download/1.4/Vagrant.Bar.zip
+https://github.com/BipSync/VagrantBar/releases/download/1.5/Vagrant.Bar.zip
 
 
 Version History|Notes
 ----|----
+1.5 | Added retina icons, fixed missing image when asking for passwords
 1.4 | Configurable icon, SSH application, check for updates. Updated icons. Now check for updates a maximum of once an hour
 1.3 | Update notification
 1.2 | Connect to a machine via SSH
