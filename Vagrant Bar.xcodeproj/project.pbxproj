@@ -11,9 +11,9 @@
 		DA60B4B4192F567700B4B8B8 /* AskPass in Resources */ = {isa = PBXBuildFile; fileRef = DAB47EDF192F429A00D2BC43 /* AskPass */; };
 		DA9C37071932032000FEE6D8 /* 18_mono.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9C37041932032000FEE6D8 /* 18_mono.png */; };
 		DA9C37081932032000FEE6D8 /* 18.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9C37051932032000FEE6D8 /* 18.png */; };
-		DA9C37091932032000FEE6D8 /* 64.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9C37061932032000FEE6D8 /* 64.png */; };
 		DA9C370C193226D600FEE6D8 /* 18_mono@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9C370A193226D600FEE6D8 /* 18_mono@2x.png */; };
 		DA9C370D193226D600FEE6D8 /* 18@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA9C370B193226D600FEE6D8 /* 18@2x.png */; };
+		DAB1EC98194B386C000A5E49 /* 64.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB1EC97194B386C000A5E49 /* 64.png */; };
 		DAB47EA4192E2B0300D2BC43 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB47EA3192E2B0300D2BC43 /* Cocoa.framework */; };
 		DAB47EAE192E2B0300D2BC43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAB47EAC192E2B0300D2BC43 /* InfoPlist.strings */; };
 		DAB47EB0192E2B0300D2BC43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB47EAF192E2B0300D2BC43 /* main.m */; };
@@ -60,9 +60,9 @@
 /* Begin PBXFileReference section */
 		DA9C37041932032000FEE6D8 /* 18_mono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 18_mono.png; sourceTree = "<group>"; };
 		DA9C37051932032000FEE6D8 /* 18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 18.png; sourceTree = "<group>"; };
-		DA9C37061932032000FEE6D8 /* 64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64.png; sourceTree = "<group>"; };
 		DA9C370A193226D600FEE6D8 /* 18_mono@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "18_mono@2x.png"; sourceTree = "<group>"; };
 		DA9C370B193226D600FEE6D8 /* 18@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "18@2x.png"; sourceTree = "<group>"; };
+		DAB1EC97194B386C000A5E49 /* 64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64.png; sourceTree = "<group>"; };
 		DAB47EA0192E2B0300D2BC43 /* Vagrant Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vagrant Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB47EA3192E2B0300D2BC43 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DAB47EA6192E2B0300D2BC43 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -165,7 +165,7 @@
 				DA9C37051932032000FEE6D8 /* 18.png */,
 				DA9C370A193226D600FEE6D8 /* 18_mono@2x.png */,
 				DA9C370B193226D600FEE6D8 /* 18@2x.png */,
-				DA9C37061932032000FEE6D8 /* 64.png */,
+				DAB1EC97194B386C000A5E49 /* 64.png */,
 				DAB47EB5192E2B0300D2BC43 /* AppDelegate.h */,
 				DAB47EB6192E2B0300D2BC43 /* AppDelegate.m */,
 				DAB47EBB192E2B0300D2BC43 /* Images.xcassets */,
@@ -319,11 +319,11 @@
 				DA9C37081932032000FEE6D8 /* 18.png in Resources */,
 				DA60B4B4192F567700B4B8B8 /* AskPass in Resources */,
 				DAB47EAE192E2B0300D2BC43 /* InfoPlist.strings in Resources */,
+				DAB1EC98194B386C000A5E49 /* 64.png in Resources */,
 				DAB47EBC192E2B0300D2BC43 /* Images.xcassets in Resources */,
 				DA9C370C193226D600FEE6D8 /* 18_mono@2x.png in Resources */,
 				DAB47ED8192E319100D2BC43 /* MainMenu.xib in Resources */,
 				DA9C370D193226D600FEE6D8 /* 18@2x.png in Resources */,
-				DA9C37091932032000FEE6D8 /* 64.png in Resources */,
 				DA9C37071932032000FEE6D8 /* 18_mono.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

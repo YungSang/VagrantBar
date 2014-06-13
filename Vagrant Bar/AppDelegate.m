@@ -109,6 +109,12 @@
     
 }
 
+- (void) menuDidClose:(NSMenu *)menu {
+    
+    [menu performSelector:@selector(removeAllItems) withObject:nil afterDelay:1];
+    
+}
+
 - (void) appendCommonMenuItems:(NSMenu *)menu {
     
     [menu addItem:[NSMenuItem separatorItem]];
