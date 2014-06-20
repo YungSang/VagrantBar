@@ -388,14 +388,16 @@
                     [validTokens addObject:token];
                 }
             }
-            if ( [validTokens count] == 5 ) {
+            if ( [validTokens count] >= 5 ) {
+                NSArray *paths = [validTokens subarrayWithRange:NSMakeRange(4, [validTokens count] - 4)];
+                NSString *path = [paths componentsJoinedByString:@" "];
                 
                 [status addObject:@{
                                     @"id" : validTokens[ 0 ],
                                     @"name" : validTokens[ 1 ],
                                     @"provider" : validTokens[ 2 ],
                                     @"state" : validTokens[ 3 ],
-                                    @"path" : validTokens[ 4 ]
+                                    @"path" : path
                                     }];
                 
             }
