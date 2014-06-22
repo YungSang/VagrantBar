@@ -158,12 +158,12 @@
         [self setupMachineSubmenuExtras:item.submenu];
         
         BOOL running = [machineStatus[ @"state" ] isEqualToString:@"running"],
-        suspended = [machineStatus[ @"state" ] isEqualToString:@"suspended"],
-        stopped = [machineStatus[ @"state" ] isEqualToString:@"stopped"];
+        suspended = [machineStatus[ @"state" ] isEqualToString:@"suspended"] || [machineStatus[ @"state" ] isEqualToString:@"saved"],
+        stopped = [machineStatus[ @"state" ] isEqualToString:@"stopped"] || [machineStatus[ @"state" ] isEqualToString:@"poweroff"];
         
         [[item.submenu itemAtIndex:0] setEnabled:!stopped]; // halt
-        [[item.submenu itemAtIndex:1] setEnabled:YES]; // provision
-        [[item.submenu itemAtIndex:2] setEnabled:YES]; // reload
+        [[item.submenu itemAtIndex:1] setEnabled:running]; // provision
+        [[item.submenu itemAtIndex:2] setEnabled:running]; // reload
         [[item.submenu itemAtIndex:3] setEnabled:suspended]; // resume
         [[item.submenu itemAtIndex:4] setEnabled:running]; // suspend
         [[item.submenu itemAtIndex:5] setEnabled:!running]; //up
@@ -388,14 +388,16 @@
                     [validTokens addObject:token];
                 }
             }
-            if ( [validTokens count] == 5 ) {
+            if ( [validTokens count] >= 5 ) {
+                NSArray *paths = [validTokens subarrayWithRange:NSMakeRange(4, [validTokens count] - 4)];
+                NSString *path = [paths componentsJoinedByString:@" "];
                 
                 [status addObject:@{
                                     @"id" : validTokens[ 0 ],
                                     @"name" : validTokens[ 1 ],
                                     @"provider" : validTokens[ 2 ],
                                     @"state" : validTokens[ 3 ],
-                                    @"path" : validTokens[ 4 ]
+                                    @"path" : path
                                     }];
                 
             }
