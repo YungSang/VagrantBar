@@ -2,14 +2,14 @@
 
 ## Overview
 
-Vagrant Bar is a simple wrapper to the Vagrant command line tool to manage machines registered with Vagrant
+Vagrant Bar is a simple wrapper to the Vagrant command line tool to manage machines registered with Vagrant - supporting ALL providers
 
 ![Screenshot](https://raw.githubusercontent.com/BipSync/VagrantBar/master/Screenshot.png)
 
 ## Requirements
 
 * OS X 10.9
-* Vagrant 1.6+ 
+* Vagrant 1.6+ (any providers)
  * http://www.vagrantup.com
 
 ## Download
