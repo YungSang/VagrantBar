@@ -43,6 +43,55 @@
         [self checkForUpdate];
     }
     
+    [self performSelectorInBackground:@selector(runGlobalStatus) withObject:nil];
+    
+}
+
+- (BOOL) willDisplayRunningMachines {
+    
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber * displayRunningMachines = [defaults valueForKey:@"displayRunningMachines"];
+    if ( !displayRunningMachines || [displayRunningMachines boolValue] ) {
+        return YES;
+    }
+    return NO;
+    
+}
+
+- (NSImage *) statusItemImage:(int)number {
+    
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    NSString * imageName = @"18";
+    if ( [defaults boolForKey:@"monoIcon"] ) {
+        imageName = @"18_mono";
+    }
+    NSImage * image = [NSImage imageNamed:imageName];
+    
+    if ( [self willDisplayRunningMachines] ) {
+        
+        NSImage * canvas = [[NSImage alloc] initWithSize:
+                            NSMakeSize( image.size.width + 15, image.size.height )];
+        [canvas lockFocus];
+        
+        [image drawAtPoint:NSZeroPoint
+                  fromRect:NSMakeRect( 0, 0, image.size.width, image.size.height )
+                 operation:NSCompositeCopy
+                  fraction:1];
+        
+        NSString * string = number < 0 ? @"…" : [NSString stringWithFormat:@"%d", number];
+        [string drawAtPoint:NSMakePoint( image.size.width + 5, .5 )
+           withAttributes:@{
+                            NSForegroundColorAttributeName : [NSColor blackColor],
+                            NSFontAttributeName : [NSFont systemFontOfSize:13]
+                            }];
+        
+        [canvas unlockFocus];
+        return canvas;
+            
+    }
+    
+    return image;
+
 }
 
 - (void) setupStatusBarItem {
@@ -55,13 +104,7 @@
     item.highlightMode = YES;
     item.menu = menu;
     
-    NSString * imageName = @"18";
-    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-    if ( [defaults boolForKey:@"monoIcon"] ) {
-        imageName = @"18_mono";
-    }
-    
-    item.image = [NSImage imageNamed:imageName];
+    item.image = [self statusItemImage:-1];
     item.toolTip = [NSString stringWithFormat:@"Vagrant Bar v%@",
                     [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     
@@ -136,6 +179,7 @@
     NSString * stringOutput = [[NSString alloc] initWithData:dataOutput encoding:NSUTF8StringEncoding];
     
     NSMutableArray * machineItems = [@[] mutableCopy];
+    int numberOfRunningMachines = 0;
     
     NSArray * machineStatuses = [self parseGlobalStatus:stringOutput];
     for ( NSDictionary * machineStatus in machineStatuses ) {
@@ -170,6 +214,10 @@
         
         [machineItems addObject:item];
         
+        if ( running ) {
+            numberOfRunningMachines++;
+        }
+        
     }
     
     [self.mainMenu removeAllItems];
@@ -191,6 +239,14 @@
     [self appendCommonMenuItems:self.mainMenu];
     
     runningGlobalStatus = NO;
+    
+    if ( [self willDisplayRunningMachines] ) {
+        
+        [self updateStatusItemImage:numberOfRunningMachines];
+        
+        [self performSelectorOnMainThread:@selector(scheduleGlobalStatus) withObject:nil waitUntilDone:NO];
+        
+    }
     
 }
 
@@ -577,6 +633,18 @@
     }
     [defaults setValue:[NSNumber numberWithDouble:nowTime] forKey:defaultsKey];
     return YES;
+    
+}
+
+- (void) updateStatusItemImage:(int)numberOfRunningMachines {
+
+    self.statusItem.image = [self statusItemImage:numberOfRunningMachines];
+    
+}
+
+- (void) scheduleGlobalStatus {
+    
+    [self performSelector:@selector(runGlobalStatus) withObject:nil afterDelay:30];
     
 }
 

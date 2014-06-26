@@ -40,3 +40,4 @@ Value|Command
 Mono status bar icon|`defaults write bipsync.Vagrant-Bar monoIcon -bool true`
 Use a different Terminal|`defaults write bipsync.Vagrant-Bar terminalAppName -string TERMINALAPPNAME`
 Disable update checking|`defaults write bipsync.Vagrant-Bar checkForUpdates -bool false`
+Disable displaying number of running machines|`defaults write bipsync.Vagrant-Bar displayRunningMachines -bool false`
