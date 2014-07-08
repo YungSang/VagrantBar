@@ -49,6 +49,15 @@
     
 }
 
+- (void)refresh {
+    
+    [self runCommandWithArguments:@[ @"global-status", @"--prune" ]];
+
+    [self fetchMachineItems];
+    
+}
+
+
 - (BOOL) willDisplayRunningMachines {
     
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
@@ -167,6 +176,8 @@
 
 - (void) appendCommonMenuItems:(NSMenu *)menu {
     
+    [menu addItem:[NSMenuItem separatorItem]];
+    [menu addItemWithTitle:@"Refresh" action:@selector(refresh) keyEquivalent:@""];
     [menu addItem:[NSMenuItem separatorItem]];
     [menu addItemWithTitle:@"Quit Vagrant Bar" action:@selector(quit) keyEquivalent:@""];
     
