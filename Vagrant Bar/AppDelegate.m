@@ -1,4 +1,4 @@
-//
+
 //  AppDelegate.m
 //  Vagrant Bar
 //
@@ -34,6 +34,8 @@
         
     }
     
+    supportsMachineIndex = NO;
+    
     [self setupStatusBarItem];
     [self setupMachineSubmenu];
     
@@ -43,7 +45,7 @@
         [self checkForUpdate];
     }
     
-    [self performSelectorInBackground:@selector(runGlobalStatus) withObject:nil];
+    [self performSelectorInBackground:@selector(fetchMachineItems) withObject:nil];
     
 }
 
@@ -148,7 +150,12 @@
     [menu addItemWithTitle:@"Fetching machine status.." action:nil keyEquivalent:@""];
     [self appendCommonMenuItems:menu];
     
-    [self performSelectorInBackground:@selector(runGlobalStatus) withObject:nil];
+    if ( supportsMachineIndex ) {
+        [self fetchMachineItems];
+    }
+    else {
+        [self performSelectorInBackground:@selector(fetchMachineItems) withObject:nil];
+    }
     
 }
 
@@ -220,6 +227,14 @@
         
     }
     
+    [self updateMenu:machineItems numberOfRunningMachines:numberOfRunningMachines];
+    
+    runningGlobalStatus = NO;
+    
+}
+
+- (void) updateMenu:(NSArray *)machineItems numberOfRunningMachines:(int)numberOfRunningMachines {
+
     [self.mainMenu removeAllItems];
     if ( [machineItems count] ) {
         NSMenuItem * allItem = [[NSMenuItem alloc] initWithTitle:@"All Machines" action:@selector(allAction:) keyEquivalent:@""];
@@ -238,13 +253,10 @@
     }
     [self appendCommonMenuItems:self.mainMenu];
     
-    runningGlobalStatus = NO;
-    
     if ( [self willDisplayRunningMachines] ) {
         
         [self updateStatusItemImage:numberOfRunningMachines];
-        
-        [self performSelectorOnMainThread:@selector(scheduleGlobalStatus) withObject:nil waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(scheduleFetchMachineItems) withObject:nil waitUntilDone:NO];
         
     }
     
@@ -445,6 +457,9 @@
                 }
             }
             if ( [validTokens count] >= 5 ) {
+                if ( [[tokens objectAtIndex:5] characterAtIndex:0] != '/' ) {
+                    continue;
+                }
                 NSArray *paths = [validTokens subarrayWithRange:NSMakeRange(4, [validTokens count] - 4)];
                 NSString *path = [paths componentsJoinedByString:@" "];
                 
@@ -642,12 +657,97 @@
     
 }
 
-- (void) scheduleGlobalStatus {
+- (void) scheduleFetchMachineItems {
     
-    [self performSelector:@selector(runGlobalStatus) withObject:nil afterDelay:30];
+    [self performSelector:@selector(fetchMachineItems) withObject:nil afterDelay:120];
     
 }
 
+- (void) fetchMachineItems {
+    
+    if ( ![self parseMachineIndex] ) {
+        [self runGlobalStatus];
+    }
+    
+}
 
+- (BOOL) parseMachineIndex {
+    
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    
+    NSString * machineIndexPath = [NSHomeDirectory() stringByAppendingString:
+                                   @"/.vagrant.d/data/machine-index/index"];
+    
+    if ( ![fileManager fileExistsAtPath:machineIndexPath] ) {
+        return NO;
+    }
+    
+    NSData * machineIndexData = [NSData dataWithContentsOfFile:machineIndexPath];
+    if ( !machineIndexData ) {
+        return NO;
+    }
+    
+    NSDictionary * machineIndex =
+        [NSJSONSerialization JSONObjectWithData:machineIndexData options:0 error:0];
+    if ( !machineIndex ) {
+        return NO;
+    }
+    
+    int machineIndexVersion = [machineIndex[ @"version" ] intValue];
+    if ( machineIndexVersion != 1 ) {
+        return NO;
+    }
+    
+    supportsMachineIndex = YES;
+    
+    NSDictionary * machines = machineIndex[ @"machines" ];
+    NSMutableArray * machineItems = [@[] mutableCopy];
+    int numberOfRunningMachines = 0;
+    
+    for ( NSString * machineId in machines ) {
+        
+        NSDictionary * machineStatus = machines[ machineId ];
+        
+        NSString * title = [NSString stringWithFormat:@"%@ (%@): %@",
+                            machineStatus[ @"name" ],
+                            [machineId substringToIndex:7],
+                            machineStatus[ @"state" ]
+                            ];
+        NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
+        
+        
+        if ( !machineIds ) {
+            machineIds = [@[] mutableCopy];
+        }
+        [machineIds addObject:machineId];
+        
+        item.tag = [machineIds count] - 1;
+        item.submenu = [machineSubmenu copy];
+        [self setupMachineSubmenuExtras:item.submenu];
+        
+        BOOL running = [machineStatus[ @"state" ] isEqualToString:@"running"],
+        suspended = [machineStatus[ @"state" ] isEqualToString:@"suspended"] || [machineStatus[ @"state" ] isEqualToString:@"saved"],
+        stopped = [machineStatus[ @"state" ] isEqualToString:@"stopped"] || [machineStatus[ @"state" ] isEqualToString:@"poweroff"];
+        
+        [[item.submenu itemAtIndex:0] setEnabled:!stopped]; // halt
+        [[item.submenu itemAtIndex:1] setEnabled:running]; // provision
+        [[item.submenu itemAtIndex:2] setEnabled:running]; // reload
+        [[item.submenu itemAtIndex:3] setEnabled:suspended]; // resume
+        [[item.submenu itemAtIndex:4] setEnabled:running]; // suspend
+        [[item.submenu itemAtIndex:5] setEnabled:!running]; //up
+        
+        [machineItems addObject:item];
+        
+        if ( running ) {
+            numberOfRunningMachines++;
+        }
+        
+    }
+    
+    [self updateMenu:machineItems numberOfRunningMachines:numberOfRunningMachines];
+    
+    return YES;
+    
+}
 
 @end

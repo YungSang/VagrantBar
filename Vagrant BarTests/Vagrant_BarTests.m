@@ -57,6 +57,15 @@
     
     XCTAssertTrue( [machineStatuses count] == 6, @"Response with six machines" );
     
+    machineStatuses =
+    [delegate parseGlobalStatus:
+     @"id       name        provider  state   directory\n"
+     @"-------------------------------------------------------------------------------------------------------------\n"
+     @"\n"
+     @"No machines registered on this host machine.\n"
+     ];
+    
+    XCTAssertTrue( [machineStatuses count] == 0, @"Response with no machines" );
     
 }
 

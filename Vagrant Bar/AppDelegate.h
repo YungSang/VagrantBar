@@ -14,6 +14,7 @@
     BOOL runningGlobalStatus;
     NSMenu * machineSubmenu;
     NSString * vagrantPath;
+    BOOL supportsMachineIndex;
 
 }
 
