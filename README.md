@@ -14,11 +14,12 @@ Vagrant Bar is a simple wrapper to the Vagrant command line tool to manage machi
 
 ## Download
 
-https://github.com/BipSync/VagrantBar/releases/download/1.8/Vagrant.Bar.zip
+https://github.com/BipSync/VagrantBar/releases/download/1.9/Vagrant.Bar.zip
 
 
 Version History|Notes
 ----|----
+1.9 | Now displays the list of machines without any delay by parsing the machine index directly, falls back to old method, handles no machines correctly
 1.8 | Now shows the number of running machines (can be disabled, see below)
 1.7 | Fixed incorrect statuses & path, fixed a bug with paths with spaces in the name
 1.6 | Updated icons, fixed incorrect menu position
