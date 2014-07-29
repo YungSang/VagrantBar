@@ -26,6 +26,7 @@
 		DAB47ED8192E319100D2BC43 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB47ED7192E319100D2BC43 /* MainMenu.xib */; };
 		DAB47EE1192F429A00D2BC43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB47EE0192F429A00D2BC43 /* Foundation.framework */; };
 		DAB47EE4192F429A00D2BC43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB47EE3192F429A00D2BC43 /* main.m */; };
+		FFC49F9E194FACF5003A2339 /* iTerm.sh in Resources */ = {isa = PBXBuildFile; fileRef = FFC49F9D194FACF5003A2339 /* iTerm.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		DAB47EE0192F429A00D2BC43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DAB47EE3192F429A00D2BC43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DAB47EE6192F429A00D2BC43 /* AskPass-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AskPass-Prefix.pch"; sourceTree = "<group>"; };
+		FFC49F9D194FACF5003A2339 /* iTerm.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = iTerm.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				DAB1EC97194B386C000A5E49 /* 64.png */,
 				DAB47EB5192E2B0300D2BC43 /* AppDelegate.h */,
 				DAB47EB6192E2B0300D2BC43 /* AppDelegate.m */,
+				FFC49F9D194FACF5003A2339 /* iTerm.sh */,
 				DAB47EBB192E2B0300D2BC43 /* Images.xcassets */,
 				DAB47EAA192E2B0300D2BC43 /* Supporting Files */,
 				DAB47ED7192E319100D2BC43 /* MainMenu.xib */,
@@ -324,6 +327,7 @@
 				DA9C370C193226D600FEE6D8 /* 18_mono@2x.png in Resources */,
 				DAB47ED8192E319100D2BC43 /* MainMenu.xib in Resources */,
 				DA9C370D193226D600FEE6D8 /* 18@2x.png in Resources */,
+				FFC49F9E194FACF5003A2339 /* iTerm.sh in Resources */,
 				DA9C37071932032000FEE6D8 /* 18_mono.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

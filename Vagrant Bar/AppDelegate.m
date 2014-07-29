@@ -570,6 +570,7 @@
     
     [menu addItem:[NSMenuItem separatorItem]];
     [self addMenuItem:@"SSH" withImage:NSImageNameFollowLinkFreestandingTemplate toMenu:menu];
+    [self addMenuItem:@"Terminal" withImage:NSImageNameFollowLinkFreestandingTemplate toMenu:menu];
     
 }
 
@@ -591,6 +592,18 @@
               [NSString stringWithFormat:@"%@ ssh %@", vagrantPath, machineId]];
     
     [self runScriptInTerminal:script];
+    
+}
+
+- (void) machineTerminal:(id)sender {
+    
+    NSString * machineId = [self machineIdFromSender:sender];
+    
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *helperPath = [[mainBundle bundlePath]
+                            stringByAppendingString:@"/Contents/Resources/iTerm.sh"];
+    
+    [NSTask launchedTaskWithLaunchPath: helperPath arguments:@[ machinePaths[ machineId ] ]];
     
 }
 
