@@ -746,15 +746,31 @@
     supportsMachineIndex = YES;
     
     NSDictionary * machines = machineIndex[ @"machines" ];
+    
+    NSMutableArray * arrMachines = [@[] mutableCopy];
+    for ( NSString * machineId in machines ) {
+        NSMutableDictionary * machineStatus = [machines[ machineId ] mutableCopy];
+        machineStatus[ @"id" ] = machineId;
+        [arrMachines addObject:machineStatus];
+    }
+    
+    NSArray* sortedMachines = [arrMachines sortedArrayUsingComparator:^NSComparisonResult(id first, id second) {
+        NSComparisonResult path = [first[ @"vagrantfile_path" ] compare:second[ @"vagrantfile_path" ]];
+        if ( path == NSOrderedSame ) {
+            return [first[ @"name" ] compare:second[ @"name" ]];
+        }
+        return path;
+    }];
+    
     NSMutableArray * machineItems = [@[] mutableCopy];
     int numberOfRunningMachines = 0;
     
     [machineIds removeAllObjects];
     [machinePaths removeAllObjects];
     
-    for ( NSString * machineId in machines ) {
+    for ( NSDictionary * machineStatus in sortedMachines ) {
         
-        NSDictionary * machineStatus = machines[ machineId ];
+        NSString * machineId = machineStatus[ @"id" ];
         
         NSString * title = [NSString stringWithFormat:@"%@ (%@): %@",
                             machineStatus[ @"name" ],
