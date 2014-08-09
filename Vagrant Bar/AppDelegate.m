@@ -241,6 +241,8 @@
         [[item.submenu itemAtIndex:4] setEnabled:running]; // suspend
         [[item.submenu itemAtIndex:5] setEnabled:!running]; //up
         
+        [[item.submenu itemAtIndex:7] setEnabled:running]; //SSH
+        
         [machineItems addObject:item];
         
         if ( running ) {
@@ -806,6 +808,8 @@
         [[item.submenu itemAtIndex:3] setEnabled:suspended]; // resume
         [[item.submenu itemAtIndex:4] setEnabled:running]; // suspend
         [[item.submenu itemAtIndex:5] setEnabled:!running]; //up
+        
+        [[item.submenu itemAtIndex:7] setEnabled:running]; //SSH
         
         [machineItems addObject:item];
         
