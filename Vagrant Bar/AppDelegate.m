@@ -199,10 +199,7 @@
         NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
         
         
-        if ( !machineIds ) {
-            machineIds = [@[] mutableCopy];
-        }
-        [machineIds addObject:machineStatus[ @"id" ]];
+        [self addMachineId:machineStatus[ @"id" ]];
         
         item.tag = [machineIds count] - 1;
         item.submenu = [machineSubmenu copy];
@@ -659,7 +656,11 @@
 
 - (void) scheduleFetchMachineItems {
     
-    [self performSelector:@selector(fetchMachineItems) withObject:nil afterDelay:120];
+    int delay = 120;
+    if ( supportsMachineIndex ) {
+        delay = 5;
+    }
+    [self performSelector:@selector(fetchMachineItems) withObject:nil afterDelay:delay];
     
 }
 
@@ -715,11 +716,7 @@
                             ];
         NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
         
-        
-        if ( !machineIds ) {
-            machineIds = [@[] mutableCopy];
-        }
-        [machineIds addObject:machineId];
+        [self addMachineId:machineId];
         
         item.tag = [machineIds count] - 1;
         item.submenu = [machineSubmenu copy];
@@ -747,6 +744,18 @@
     [self updateMenu:machineItems numberOfRunningMachines:numberOfRunningMachines];
     
     return YES;
+    
+}
+
+- (void) addMachineId:(NSString *)machineId {
+    
+    if ( !machineIds ) {
+        machineIds = [@[] mutableCopy];
+    }
+    else if ( [machineIds containsObject:machineId] ) {
+        return;
+    }
+    [machineIds addObject:machineId];
     
 }
 
