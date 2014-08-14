@@ -234,14 +234,14 @@
             [ item setImage: [ NSImage imageNamed:NSImageNameStatusUnavailable ] ];
         }
         
-        [[item.submenu itemAtIndex:0] setEnabled:!stopped]; // halt
-        [[item.submenu itemAtIndex:1] setEnabled:running]; // provision
-        [[item.submenu itemAtIndex:2] setEnabled:running]; // reload
+        [[item.submenu itemAtIndex:0] setEnabled:!stopped];  // halt
+        [[item.submenu itemAtIndex:1] setEnabled:running];   // provision
+        [[item.submenu itemAtIndex:2] setEnabled:!stopped];  // reload
         [[item.submenu itemAtIndex:3] setEnabled:suspended]; // resume
-        [[item.submenu itemAtIndex:4] setEnabled:running]; // suspend
-        [[item.submenu itemAtIndex:5] setEnabled:!running]; //up
+        [[item.submenu itemAtIndex:4] setEnabled:running];   // suspend
+        [[item.submenu itemAtIndex:5] setEnabled:!running];  // up
         
-        [[item.submenu itemAtIndex:7] setEnabled:running]; //SSH
+        [[item.submenu itemAtIndex:7] setEnabled:running];   // SSH
         
         [machineItems addObject:item];
         
@@ -802,14 +802,14 @@
             [ item setImage: [ NSImage imageNamed:NSImageNameStatusUnavailable ] ];
         }
         
-        [[item.submenu itemAtIndex:0] setEnabled:!stopped]; // halt
-        [[item.submenu itemAtIndex:1] setEnabled:running]; // provision
-        [[item.submenu itemAtIndex:2] setEnabled:running]; // reload
+        [[item.submenu itemAtIndex:0] setEnabled:!stopped];  // halt
+        [[item.submenu itemAtIndex:1] setEnabled:running];   // provision
+        [[item.submenu itemAtIndex:2] setEnabled:!stopped];  // reload
         [[item.submenu itemAtIndex:3] setEnabled:suspended]; // resume
-        [[item.submenu itemAtIndex:4] setEnabled:running]; // suspend
-        [[item.submenu itemAtIndex:5] setEnabled:!running]; //up
+        [[item.submenu itemAtIndex:4] setEnabled:running];   // suspend
+        [[item.submenu itemAtIndex:5] setEnabled:!running];  // up
         
-        [[item.submenu itemAtIndex:7] setEnabled:running]; //SSH
+        [[item.submenu itemAtIndex:7] setEnabled:running];   // SSH
         
         [machineItems addObject:item];
         
