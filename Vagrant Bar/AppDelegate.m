@@ -189,6 +189,9 @@
     int numberOfRunningMachines = 0;
     
     NSArray * machineStatuses = [self parseGlobalStatus:stringOutput];
+    
+    [machineIds removeAllObjects];
+    
     for ( NSDictionary * machineStatus in machineStatuses ) {
         
         NSString * title = [NSString stringWithFormat:@"%@ (%@): %@",
@@ -714,6 +717,8 @@
     NSDictionary * machines = machineIndex[ @"machines" ];
     NSMutableArray * machineItems = [@[] mutableCopy];
     int numberOfRunningMachines = 0;
+    
+    [machineIds removeAllObjects];
     
     for ( NSString * machineId in machines ) {
         
