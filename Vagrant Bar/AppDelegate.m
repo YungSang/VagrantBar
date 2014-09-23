@@ -201,7 +201,6 @@
                             ];
         NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
         
-        
         [self addMachineId:machineStatus[ @"id" ]];
         
         item.tag = [machineIds count] - 1;
@@ -211,6 +210,16 @@
         BOOL running = [machineStatus[ @"state" ] isEqualToString:@"running"],
         suspended = [machineStatus[ @"state" ] isEqualToString:@"suspended"] || [machineStatus[ @"state" ] isEqualToString:@"saved"],
         stopped = [machineStatus[ @"state" ] isEqualToString:@"stopped"] || [machineStatus[ @"state" ] isEqualToString:@"poweroff"];
+        
+        if (running) {
+            [ item setImage: [ NSImage imageNamed:NSImageNameStatusAvailable ] ];
+        }
+        else if (suspended) {
+            [ item setImage: [ NSImage imageNamed:NSImageNameStatusPartiallyAvailable ] ];
+        }
+        else {
+            [ item setImage: [ NSImage imageNamed:NSImageNameStatusUnavailable ] ];
+        }
         
         [[item.submenu itemAtIndex:0] setEnabled:!stopped]; // halt
         [[item.submenu itemAtIndex:1] setEnabled:running]; // provision
@@ -740,6 +749,16 @@
         BOOL running = [machineStatus[ @"state" ] isEqualToString:@"running"],
         suspended = [machineStatus[ @"state" ] isEqualToString:@"suspended"] || [machineStatus[ @"state" ] isEqualToString:@"saved"],
         stopped = [machineStatus[ @"state" ] isEqualToString:@"stopped"] || [machineStatus[ @"state" ] isEqualToString:@"poweroff"];
+        
+        if (running) {
+            [ item setImage: [ NSImage imageNamed:NSImageNameStatusAvailable ] ];
+        }
+        else if (suspended) {
+            [ item setImage: [ NSImage imageNamed:NSImageNameStatusPartiallyAvailable ] ];
+        }
+        else {
+            [ item setImage: [ NSImage imageNamed:NSImageNameStatusUnavailable ] ];
+        }
         
         [[item.submenu itemAtIndex:0] setEnabled:!stopped]; // halt
         [[item.submenu itemAtIndex:1] setEnabled:running]; // provision
