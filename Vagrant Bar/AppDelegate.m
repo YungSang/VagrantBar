@@ -386,6 +386,16 @@
                                name:NSFileHandleReadCompletionNotification
                              object:readOutput];
     
+    task.terminationHandler = ^(NSTask * task) {
+        
+        NSTask * statusTask = [[NSTask alloc] init];
+        statusTask.launchPath = vagrantPath;
+        statusTask.arguments = @[ @"status", arguments[ 1 ] ];
+        statusTask.environment = [[[NSProcessInfo processInfo] environment] mutableCopy];
+        [statusTask launch];
+        
+    };
+    
     [task launch];
     
     [readOutput readInBackgroundAndNotify];
