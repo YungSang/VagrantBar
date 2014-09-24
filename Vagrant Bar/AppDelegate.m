@@ -206,10 +206,9 @@
     
     for ( NSDictionary * machineStatus in machineStatuses ) {
         
-        NSString * title = [NSString stringWithFormat:@"%@ (%@): %@",
+        NSString * title = [NSString stringWithFormat:@"%@ [%@]",
                             machineStatus[ @"name" ],
-                            machineStatus[ @"id" ],
-                            machineStatus[ @"state" ]
+                            machineStatus[ @"provider" ]
                             ];
         NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
         
@@ -774,10 +773,9 @@
         
         NSString * machineId = machineStatus[ @"id" ];
         
-        NSString * title = [NSString stringWithFormat:@"%@ (%@): %@",
+        NSString * title = [NSString stringWithFormat:@"%@ [%@]",
                             machineStatus[ @"name" ],
-                            [machineId substringToIndex:7],
-                            machineStatus[ @"state" ]
+                            machineStatus[ @"provider" ]
                             ];
         NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
         
