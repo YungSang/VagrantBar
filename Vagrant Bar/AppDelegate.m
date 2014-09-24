@@ -242,6 +242,8 @@
         
         [[item.submenu itemAtIndex:7] setEnabled:running];   // SSH
         
+        [[item.submenu itemAtIndex:8] setTitle:[ machineStatus[ @"path" ] stringByAbbreviatingWithTildeInPath ]]; // Terminal
+        
         [machineItems addObject:item];
         
         if ( running ) {
@@ -821,6 +823,8 @@
         [[item.submenu itemAtIndex:5] setEnabled:!running];  // up
         
         [[item.submenu itemAtIndex:7] setEnabled:running];   // SSH
+        
+        [[item.submenu itemAtIndex:8] setTitle:[ machineStatus[ @"vagrantfile_path" ] stringByAbbreviatingWithTildeInPath ]]; // Terminal
         
         [machineItems addObject:item];
         
