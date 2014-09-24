@@ -15,6 +15,7 @@
     NSMenu * machineSubmenu;
     NSString * vagrantPath;
     BOOL supportsMachineIndex;
+    NSMutableDictionary * machinePaths;
 
 }
 

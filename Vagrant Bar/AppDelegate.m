@@ -191,6 +191,7 @@
     NSArray * machineStatuses = [self parseGlobalStatus:stringOutput];
     
     [machineIds removeAllObjects];
+    [machinePaths removeAllObjects];
     
     for ( NSDictionary * machineStatus in machineStatuses ) {
         
@@ -202,6 +203,7 @@
         NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
         
         [self addMachineId:machineStatus[ @"id" ]];
+        [self addMachinePath:machineStatus[ @"path" ] forMachineId:machineStatus[ @"id" ]];
         
         item.tag = [machineIds count] - 1;
         item.submenu = [machineSubmenu copy];
@@ -563,7 +565,16 @@
     
     NSString * machineId = [self machineIdFromSender:sender];
     
-    NSString * script = @"clear\n";
+    
+    NSString * script = @"";
+    
+    NSString * machinePath = machinePaths[ machineId ];
+    if ( machinePath ) {
+        script = [script stringByAppendingString:[NSString stringWithFormat:@"cd \"%@\"\n", machinePath]];
+    }
+    
+    script = [script stringByAppendingString:@"clear\n"];
+    
     script = [script stringByAppendingString:
               [NSString stringWithFormat:@"%@ ssh %@", vagrantPath, machineId]];
     
@@ -728,6 +739,7 @@
     int numberOfRunningMachines = 0;
     
     [machineIds removeAllObjects];
+    [machinePaths removeAllObjects];
     
     for ( NSString * machineId in machines ) {
         
@@ -741,6 +753,7 @@
         NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
         
         [self addMachineId:machineId];
+        [self addMachinePath:machineStatus[ @"vagrantfile_path" ] forMachineId:machineId];
         
         item.tag = [machineIds count] - 1;
         item.submenu = [machineSubmenu copy];
@@ -791,6 +804,16 @@
     }
     [machineIds addObject:machineId];
     
+}
+
+- (void) addMachinePath:(NSString *)path forMachineId:(NSString *)machineId {
+    if ( !path ) {
+        return;
+    }
+    if ( !machinePaths ) {
+        machinePaths = [@{} mutableCopy];
+    }
+    [machinePaths setValue:path forKey:machineId];
 }
 
 @end
