@@ -4,7 +4,7 @@
 
 Vagrant Bar is a simple wrapper to the Vagrant command line tool to manage machines registered with Vagrant - supporting ALL providers
 
-![Screenshot](https://raw.githubusercontent.com/BipSync/VagrantBar/master/Screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/YungSang/VagrantBar/yungsang/iterm/Screenshot.png)
 
 ## Requirements
 
