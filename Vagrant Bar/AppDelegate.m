@@ -69,7 +69,7 @@
     }
     NSImage * image = [NSImage imageNamed:imageName];
     
-    if ( [self willDisplayRunningMachines] ) {
+    if ( [self willDisplayRunningMachines] && number ) {
         
         NSImage * canvas = [[NSImage alloc] initWithSize:
                             NSMakeSize( image.size.width + 15, image.size.height )];
